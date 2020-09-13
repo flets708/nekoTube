@@ -5,7 +5,11 @@ export default function List(props) {
     // console.log("propsを受け取りました");
     // console.log(props.videos);
     const Items = props.videos.map((video) => {
-        return <Item video={video} key={video.id.videoId}/>
+
+        if(props.selectVideo !== video){
+            return <Item video={video} key={video.id.videoId} onVideoClicked={props.onVideoClicked}/>
+        }
+        return false;
     })
 
     return (
